@@ -1,0 +1,37 @@
+# Fake database of known faces
+known_faces = {
+    "Alice": "face_encoding_alice",
+    "Bob": "face_encoding_bob",
+    "Charlie": "face_encoding_charlie"
+}
+
+def detect_face(image):
+    # Simulate detecting a face
+    print(f"Detecting face in {image}...")
+    # Fake "found face"
+    return "face_encoding_bob"
+
+def recognize_face(face_encoding):
+    # Simulate recognizing a face
+    for name, encoding in known_faces.items():
+        if face_encoding == encoding:
+            return name
+    return "Unknown"
+
+# Main program
+print("Face Detection and Recognition System")
+
+# Simulate user input
+image_input = input("Enter the image file name (e.g., 'image1.jpg'): ")
+
+# Detect face
+detected_face = detect_face(image_input)
+
+# Recognize face
+person = recognize_face(detected_face)
+
+print("\nResult:")
+if person == "Unknown":
+    print("Face not recognized!")
+else:
+    print(f"Hello, {person}! Face recognized successfully.")
