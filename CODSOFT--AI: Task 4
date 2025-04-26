@@ -1,0 +1,33 @@
+# A simple dataset of movies
+movies = {
+    "The Matrix": ["Action", "Sci-Fi"],
+    "Inception": ["Action", "Sci-Fi", "Thriller"],
+    "The Notebook": ["Romance", "Drama"],
+    "Avengers: Endgame": ["Action", "Adventure", "Sci-Fi"],
+    "Titanic": ["Romance", "Drama"],
+    "Interstellar": ["Adventure", "Drama", "Sci-Fi"],
+    "Toy Story": ["Animation", "Comedy", "Family"]
+}
+
+def recommend_movies(favorite_genres):
+    recommendations = []
+
+    for movie, genres in movies.items():
+        if any(genre in genres for genre in favorite_genres):
+            recommendations.append(movie)
+    
+    return recommendations
+
+# User input
+print("Available genres: Action, Sci-Fi, Thriller, Romance, Drama, Adventure, Animation, Comedy, Family")
+user_input = input("Enter your favorite genres (comma separated): ").split(',')
+
+# Clean up input
+favorite_genres = [genre.strip().title() for genre in user_input]
+
+# Get recommendations
+recommended = recommend_movies(favorite_genres)
+
+print("\nRecommended Movies for You:")
+for movie in recommended:
+    print("- " + movie)
