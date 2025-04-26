@@ -1,0 +1,30 @@
+import random
+
+# Dummy "database" of image file names and captions
+image_captions = {
+    "cat.jpg": "A cat sitting on a cozy sofa.",
+    "dog.jpg": "A dog playing in the park.",
+    "car.jpg": "A red sports car on a highway.",
+    "beach.jpg": "A beautiful beach during sunset.",
+    "mountain.jpg": "Snow-capped mountains under a clear blue sky."
+}
+
+def generate_caption(image_filename):
+    # Simulate feature extraction by just checking the filename
+    if image_filename in image_captions:
+        return image_captions[image_filename]
+    else:
+        # If unknown image, return random caption
+        random_captions = [
+            "An amazing view of nature.",
+            "A person enjoying a sunny day.",
+            "An object captured in perfect light."
+        ]
+        return random.choice(random_captions)
+
+# Example usage:
+print("Available images: ", list(image_captions.keys()))
+
+user_input = input("Enter the image file name (example: cat.jpg): ").strip()
+caption = generate_caption(user_input)
+print("Generated Caption:", caption)
